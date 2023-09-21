@@ -1,0 +1,151 @@
+<aside class="main-sidebar">
+    <section class="sidebar ">
+      <ul class="sidebar-menu tree">  
+        <li  class="header">Menu chính</li>          
+        <li class="treeview" [class.active]="isActive" (click)="toggleMenu()">
+          <a href="javascript:void(0)">
+              <i class="fa fa-sticky-note-o"></i> <span class="item">DASHBOARD</span>
+              <span class="pull-right-container"><i class="fa fa-caret-square-o-right"></i></span>                        
+          </a>
+                                      <ul class="treeview-menu" >
+                                                      <li class=""><a href="">Option 1</a></li>
+                                                      <li class=""><a href="">Option 2</a></li>
+                                                      <li class=""><a href="">Option 3</a></li>
+                                      </ul>
+        </li>     
+        <li class="treeview" [class.active]="isImportDataActive" (click)="toggleImportDataMenu()">
+        <a href="javascript:void(0)">
+              <i class="fa fa-file-text"></i> <span class="item">IMPORT DATA</span>
+              <span class="pull-right-container"><i class="fa fa-caret-square-o-right"></i></span>                       
+             </a>
+                                      <ul class="treeview-menu">
+                                                      <li class=""><a href="">Dữ liệu khách hàng</a></li>
+                                                      <li class=""><a href="">Dữ liệu đơn hàng</a></li>
+                                                      <li class=""><a href="">Dữ liệu đơn hàng chi tiết</a></li>
+                                                      <li class=""><a href="">Dữ liệu sản phẩm</a></li>
+                                                      <li class=""><a href="">Dữ liệu đơn vị vận chuyển</a></li>
+                                              </ul>
+                              </li>
+              </ul>
+    </section>
+  </aside>
+<div class="content-wrapper" style="min-height: 1500px;">
+<div class="wrapper">
+<section class="content">
+    <form class="" enctype="multipart/form-data" method="post" action="" name="frm_product">
+<div class="row">
+<div class="col-md-12">
+    <div class="box box-info">
+        <div class="box-header">
+            <h3 class="box-title">IMPORT</h3>
+            <div class="box-tools">
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-xs-12">
+                                                <!-- <label class="col-sm-2 control-label">File</label> -->
+                        <!-- <div class="col-sm-2">
+                            <input type="file" class="form-control" name="product_file[]">
+                        </div> -->
+                        <label for="fileInput" ><span class="Choose_file" >Choose File:</span>            </label>
+                        <br>
+                        <input type="file" id="fileInput" (change)="handleFileInput($event)" accept=".xlsx,.csv">
+<div>
+  <p class="Choose_file">Selected File: {{ selectedFileName }}</p>
+  <div *ngIf="fileContent">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let header of fileContent[0]">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of fileContent.slice(1)">
+          <td *ngFor="let cell of row">{{ cell }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div>
+  <button class="button-30" >Upload file</button>
+</div>
+<!--                     
+                                                <label class="col-sm-2 control-label">VOUCHER .XLS</label> -->
+                        <!-- <div class="col-sm-2">
+                            <input type="file" class="form-control" name="product_file[]">
+                        </div> -->
+                        <!-- <div class="col-xs-2">
+                            <input type="submit" value="Upload Voucher Shopee" class="btn btn-warning" id="but_upload_shopee_voucher" name="but_upload_shopee_voucher">
+                        </div> -->
+                                        </div>
+                <!-- <div class="col-xs-12" style="padding-top: 10px"> -->
+                             <!-- <div class="alert alert-error"> -->
+                                <!-- <button data-dismiss="alert" class="close" type="button">×</button> -->
+                                <!-- Upload file không thành công <br> -->
+                              <!-- </div> -->
+                 <!-- </div> -->
+            </div>
+            <!-- <div class="row" style="padding-top: 20px">
+                <div class="form-group col-md-2">
+                    <label>Mã đơn IVY</label>
+                    <input type="text" class="form-control" name="order_tmdt_invoice_no" placeholder="" value="">
+                </div>
+               
+            </div> -->
+            <div class="clearfix"></div>
+            <div class="row" style="padding-top: 20px">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <h3 class="box-title">CHI TIẾT FILE</h3>
+                            <div class="box-tools">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+</ul>
+                            </div>
+                        </div>
+                                                </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-footer clearfix">
+        </div>
+    </div>
+</div>
+</div>
+</form>
+</section>
+    <!-- /.content -->
+<!-- </div> -->
+<!-- /.content-wrapper -->
+<!-- <footer class="main-footer">
+reserved.
+</footer> -->
+
+<!-- Control Sidebar -->
+<!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- <div class="modal fade modal-info" id="myModal" role="dialog">
+<div class="modal-dialog modal-sm"> -->
+    <!-- Modal content-->
+    <!-- <div class="modal-content"> -->
+        <!-- <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4 class="modal-title" id="modal_box_title">Thông báo</h4>
+        </div> -->
+        <!-- <div class="modal-body" style="background-color: #fff">
+            <p id="modal_box_msg" class="width: 100%"></p>
+        </div> -->
+    <!-- </div> -->
+
+<!-- </div>
+</div> -->
+<!-- <div class="modal_loading">Place at bottom of page</div> -->
+<!-- <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div> -->
